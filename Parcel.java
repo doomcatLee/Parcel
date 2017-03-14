@@ -3,6 +3,7 @@ class Parcel{
   public double height;
   public double width;
   public double weight;
+  public int price;
 
   public Parcel(double lt, double ht, double wd, double wt){
     length = lt;
@@ -41,22 +42,23 @@ class Parcel{
     return 0;
   }
 
-  
+  public void applyDiscount(){
+    price -= 20;
+  }
 
   public double costToShip(){
-    int baseCost = 20;
     //if volume is over 500
     if (volume() > 500){
-      baseCost += 20;
+      price += 20;
     }
     //if weight is over 40 pounds
     if (weight > 40){
-      baseCost += 20;
+      price += 20;
     }
-    return baseCost;
+    return price;
   }
 
   public String toString(){
-    return "Volume: " + volume();
+    return "Package price: $" + price;
   }
 }
